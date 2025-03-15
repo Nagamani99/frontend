@@ -1,0 +1,27 @@
+import React, { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const login = () => {
+  let ref1 = useRef()
+  let ref2 = useRef()
+
+  let navigate = useNavigate()
+
+  let login = (e) =>{
+    e.preventDefault()
+    ref1.current.value === "admin" && ref2.current.value === "admin@123" ? navigate("dashboard") : navigate("error")
+  }
+  return (
+    <div>
+      <form action="">
+        name : <input type="text" name='' id='' ref={ref1} />
+        <br />
+        password : <input type="password" name='' id='' ref={ref2} />
+        <br />
+        <button onClick={login}>Submit</button>
+      </form>
+    </div>
+  )
+}
+
+export default login
